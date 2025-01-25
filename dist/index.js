@@ -20,6 +20,7 @@ const User_1 = require("./model/User");
 const User_2 = require("./validations/User");
 const mongoose_1 = __importDefault(require("mongoose"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const middleware_1 = __importDefault(require("./middleware"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 (0, db_1.default)();
@@ -82,6 +83,23 @@ app.post("/api/v1/signup", (req, res) => __awaiter(void 0, void 0, void 0, funct
         res.status(500).json({ message: "Internal server error!" });
     }
 }));
+app.post("/api/v1/content", middleware_1.default, (req, res) => {
+    const user = req.user; // Type-safe access to the `user` property
+    res.status(200).json({ message: "Authorized access", user });
+});
+app.get("/api/v1/content", (req, res) => {
+    res.status(501).json({ message: "Get content endpoint not implemented yet." });
+});
+app.delete("/api/v1/content", (req, res) => {
+    res.status(501).json({ message: "Delete content endpoint not implemented yet." });
+});
+// Brain Share Routes (Placeholder)
+app.post("/api/v1/brain/share", (req, res) => {
+    res.status(501).json({ message: "Brain share endpoint not implemented yet." });
+});
+app.get("/api/v1/brain/:shareLink", (req, res) => {
+    res.status(501).json({ message: "Get brain share endpoint not implemented yet." });
+});
 // Start the Server
 app.listen(3000, () => {
     console.log("Server Running on http://localhost:3000");

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export const connectDB = async (): Promise<void> => {
-    const mongoUri = ""; // Replace with your MongoDB URI
+    const mongoUri = "mongodb+srv://thimayarohit:Rohit%402728@cluster0.mr1gx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"; // Replace with your MongoDB URI
 
     try {
         await mongoose.connect(mongoUri);

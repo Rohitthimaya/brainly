@@ -92,6 +92,27 @@ app.post(
 );
 
 
+app.post("/api/v1/content", authMiddleware, (req, res) => {
+  const user = (req as any).user; // Type-safe access to the `user` property
+  res.status(200).json({ message: "Authorized access", user });});
+
+app.get("/api/v1/content", (req, res) => {
+  res.status(501).json({ message: "Get content endpoint not implemented yet." });
+});
+
+app.delete("/api/v1/content", (req, res) => {
+  res.status(501).json({ message: "Delete content endpoint not implemented yet." });
+});
+
+// Brain Share Routes (Placeholder)
+app.post("/api/v1/brain/share", (req, res) => {
+  res.status(501).json({ message: "Brain share endpoint not implemented yet." });
+});
+
+app.get("/api/v1/brain/:shareLink", (req, res) => {
+  res.status(501).json({ message: "Get brain share endpoint not implemented yet." });
+});
+
 // Start the Server
 app.listen(3000, () => {
   console.log("Server Running on http://localhost:3000");

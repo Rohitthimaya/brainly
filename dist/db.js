@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.connectDB = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    const mongoUri = ""; // Replace with your MongoDB URI
+    const mongoUri = "mongodb+srv://thimayarohit:Rohit%402728@cluster0.mr1gx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"; // Replace with your MongoDB URI
     try {
         yield mongoose_1.default.connect(mongoUri);
         console.log("MongoDB connected successfully");
